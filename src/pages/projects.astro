@@ -1,0 +1,426 @@
+
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+import projectsData from '../data/projects.json';
+import { url } from '../utils/paths';
+
+const projects = [...projectsData].sort(
+  (a, b) => b.year - a.year
+);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={`Projects | ${SITE_TITLE}`}
+      description="Selected research and engineering projects in artificial intelligence, multi-agent systems, generative models, and financial machine learning."
+    />
+
+    <style>
+      .projects-page {
+        width: min(1080px, calc(100% - 48px));
+        margin: 0 auto;
+        padding: 48px 0 90px;
+        color: var(--color-text-main);
+      }
+
+      .page-header {
+        margin-bottom: 42px;
+      }
+
+      .page-header h1 {
+        margin: 0 0 16px;
+        font-size: clamp(2rem, 4vw, 2.7rem);
+        font-weight: 750;
+        letter-spacing: -0.04em;
+        line-height: 1.2;
+      }
+
+      .page-header p {
+        max-width: 800px;
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.85;
+        color: var(--color-text-muted);
+      }
+
+      .research-link {
+        display: inline-block;
+        margin-top: 16px;
+        color: var(--color-accent);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+
+      .research-link:hover {
+        text-decoration: underline;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+        gap: 26px;
+      }
+
+      .project-card {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        background: var(--color-bg-offset);
+        border: 1px solid var(--color-border);
+        border-radius: 16px;
+        overflow: hidden;
+        transition:
+          transform 0.25s ease,
+          border-color 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--color-accent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .project-cover {
+        position: relative;
+        min-height: 132px;
+        padding: 22px 24px;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        background:
+          radial-gradient(
+            circle at 85% 15%,
+            rgba(255,255,255,0.16),
+            transparent 40%
+          ),
+          linear-gradient(
+            125deg,
+            #183a51,
+            #2f6470
+          );
+        color: #fff;
+      }
+
+      .project-card:nth-child(2) .project-cover {
+        background: linear-gradient(
+          125deg,
+          #253955,
+          #526e91
+        );
+      }
+
+      .project-card:nth-child(3) .project-cover {
+        background: linear-gradient(
+          125deg,
+          #244c48,
+          #58867a
+        );
+      }
+
+      .project-card:nth-child(4) .project-cover {
+        background: linear-gradient(
+          125deg,
+          #453b59,
+          #74658e
+        );
+      }
+
+      .project-card:nth-child(5) .project-cover {
+        background: linear-gradient(
+          125deg,
+          #66513b,
+          #9a8060
+        );
+      }
+
+      .cover-category {
+        position: relative;
+        z-index: 1;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.015em;
+        max-width: 70%;
+        line-height: 1.5;
+      }
+
+      .cover-number {
+        position: absolute;
+        right: 18px;
+        bottom: -24px;
+        font-size: 7rem;
+        font-weight: 800;
+        letter-spacing: -0.08em;
+        line-height: 1;
+        opacity: 0.14;
+        color: #fff;
+        pointer-events: none;
+      }
+
+      .project-body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 26px;
+      }
+
+      .project-topline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+
+      .project-year {
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: var(--color-accent);
+      }
+
+      .project-badge {
+        display: inline-flex;
+        padding: 5px 11px;
+        border: 1px solid var(--color-border);
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 650;
+        color: var(--color-text-muted);
+      }
+
+      .project-title {
+        margin: 0 0 11px;
+        font-family: var(--font-serif);
+        font-size: 1.45rem;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--color-text-main);
+      }
+
+      .project-role {
+        margin: 0 0 18px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--color-accent);
+      }
+
+      .project-description {
+        margin: 0 0 18px;
+        color: var(--color-text-muted);
+        line-height: 1.8;
+        font-size: 0.94rem;
+      }
+
+      .highlights {
+        margin: 0 0 20px;
+        padding-left: 20px;
+        color: var(--color-text-main);
+        font-size: 0.9rem;
+        line-height: 1.8;
+      }
+
+      .highlights li {
+        padding-left: 3px;
+        margin-bottom: 9px;
+      }
+
+      .project-bottom {
+        margin-top: auto;
+        padding-top: 18px;
+        border-top: 1px solid var(--color-border);
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 17px;
+      }
+
+      .project-tag {
+        border: 1px solid var(--color-border);
+        color: var(--color-text-muted);
+        padding: 5px 10px;
+        border-radius: 7px;
+        font-size: 0.76rem;
+      }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--color-accent);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      .project-link:hover {
+        text-decoration: underline;
+      }
+
+      .no-projects {
+        color: var(--color-text-muted);
+      }
+
+      @media (max-width: 780px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .projects-page {
+          padding: 32px 0 64px;
+        }
+
+        .page-header {
+          margin-bottom: 28px;
+        }
+
+        .project-body {
+          padding: 22px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .project-card {
+          transition: none;
+        }
+
+        .project-card:hover {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <Header />
+
+    <main class="projects-page">
+
+      <section class="page-header">
+        <h1>Projects</h1>
+
+        <p>
+          Selected research and engineering projects
+          spanning large language model agents,
+          multi-agent collaboration, generative AI,
+          and machine learning for financial
+          applications. These projects reflect my
+          experience in building, testing, and
+          evaluating intelligent systems.
+        </p>
+
+        <a
+          class="research-link"
+          href={url('/research')}
+        >
+          Explore my research plans &rarr;
+        </a>
+      </section>
+
+      <section
+        class="projects-grid"
+        aria-label="Selected Projects"
+      >
+        {projects.length > 0 ? (
+          projects.map((project, index) => (
+
+            <article class="project-card">
+
+              <div class="project-cover">
+                <span class="cover-category">
+                  {project.category}
+                </span>
+
+                <span
+                  class="cover-number"
+                  aria-hidden="true"
+                >
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+              </div>
+
+              <div class="project-body">
+
+                <div class="project-topline">
+                  <span class="project-year">
+                    {project.year}
+                  </span>
+
+                  <span class="project-badge">
+                    {project.status}
+                  </span>
+                </div>
+
+                <h2 class="project-title">
+                  {project.title}
+                </h2>
+
+                <p class="project-role">
+                  {project.role} · {project.period}
+                </p>
+
+                <p class="project-description">
+                  {project.description}
+                </p>
+
+                <ul class="highlights">
+                  {project.highlights.map(
+                    (highlight) => (
+                      <li>{highlight}</li>
+                    )
+                  )}
+                </ul>
+
+                <div class="project-bottom">
+
+                  <div class="project-tags">
+                    {project.topics.map(
+                      (topic) => (
+                        <span class="project-tag">
+                          {topic}
+                        </span>
+                      )
+                    )}
+                  </div>
+
+                  {project.link && (
+                    <a
+                      class="project-link"
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Project &rarr;
+                    </a>
+                  )}
+
+                </div>
+
+              </div>
+            </article>
+
+          ))
+        ) : (
+          <p class="no-projects">
+            No projects available.
+          </p>
+        )}
+      </section>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>

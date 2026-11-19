@@ -1,0 +1,118 @@
+
+[
+  {
+    "id": "electric-crab",
+    "title": "Electric Crab — Multi-Agent Prediction Market System",
+    "year": 2026,
+    "period": "May 2026",
+    "category": "Multi-Agent Systems · Financial AI",
+    "role": "Core Developer · ETH Beijing 2026",
+    "status": "Hackathon",
+    "description": "Contributed to the development and testing of Electric Crab, a multi-agent prediction market system integrating AI agents for market analysis, forecasting, and collaborative decision-making.",
+    "highlights": [
+      "Participated in the development and testing of eight AI agents, including price analysis and sentiment analysis components.",
+      "Supported agent functionality testing, system debugging, and scenario validation for abnormal market movements.",
+      "Identified potential risks associated with market manipulation and proposed improvements to the system's risk-warning logic.",
+      "Used Claude Code and Codex to support code review, test-case generation, and project delivery."
+    ],
+    "topics": [
+      "Multi-Agent Systems",
+      "LLM Agents",
+      "Prediction Markets",
+      "Agent Evaluation"
+    ],
+    "link": "https://github.com/Aaron-sg-qi/Electric-Crab-The-Market-Guardian"
+  },
+  {
+    "id": "agent-interoperability",
+    "title": "Decentralized AI Agent Interoperability",
+    "year": 2025,
+    "period": "May – June 2025",
+    "category": "Agent Communication · Distributed AI",
+    "role": "Project Team Member · Global AI Conference & Hackathon Tokyo",
+    "status": "Second Prize",
+    "description": "Worked on an open-source interoperability framework for decentralized AI agents, exploring communication, coordination, identity verification, and context sharing across autonomous agents.",
+    "highlights": [
+      "Contributed to an agent-to-agent communication framework building on concepts from Google's A2A protocol.",
+      "Explored decentralized identity, authorization, and security verification mechanisms for agent interactions.",
+      "Worked on collaboration patterns involving division of labor, relay, supervision, and shared context.",
+      "Investigated coordination challenges in distributed multi-agent environments."
+    ],
+    "topics": [
+      "Agent Interoperability",
+      "Multi-Agent Collaboration",
+      "Distributed Systems",
+      "Decentralized Identity"
+    ],
+    "link": ""
+  },
+  {
+    "id": "banking-generative-ai",
+    "title": "Generative AI for Banking Data Analysis",
+    "year": 2024,
+    "period": "November 2023 – June 2024",
+    "category": "Generative AI · Financial Data",
+    "role": "Research Experience",
+    "status": "Research Project",
+    "description": "Investigated generative artificial intelligence approaches for banking data analysis, synthetic data generation, and predictive modeling using historical financial information.",
+    "highlights": [
+      "Collected and preprocessed historical banking datasets through cleaning, transformation, and normalization.",
+      "Explored generative adversarial networks and Transformer-based encoder-decoder architectures.",
+      "Worked on model training and the generation of synthetic data samples.",
+      "Investigated financial trend analysis using generated data, market conditions, and economic indicators."
+    ],
+    "topics": [
+      "Generative Models",
+      "Transformers",
+      "Synthetic Data",
+      "Financial Machine Learning"
+    ],
+    "link": ""
+  },
+  {
+    "id": "quantitative-ml",
+    "title": "Machine Learning for Quantitative Strategy Research",
+    "year": 2026,
+    "period": "December 2025 – February 2026",
+    "category": "Machine Learning · Quantitative Finance",
+    "role": "Quantitative Research · Primal Fund",
+    "status": "Industry Research",
+    "description": "Explored machine learning approaches for quantitative investment research, including market data processing, predictive modeling, alpha factor exploration, and research model reproduction.",
+    "highlights": [
+      "Performed financial data cleaning and feature engineering to support quantitative model development.",
+      "Explored machine learning and deep learning methods for identifying predictive market signals.",
+      "Studied and reproduced research methods from machine learning and quantitative finance literature.",
+      "Investigated the applicability of selected models to financial market data."
+    ],
+    "topics": [
+      "Quantitative Finance",
+      "Machine Learning",
+      "Alpha Factors",
+      "Model Reproduction"
+    ],
+    "link": ""
+  },
+  {
+    "id": "budweiser-generative-ai",
+    "title": "Generative AI Model Building — Budweiser China Challenge",
+    "year": 2023,
+    "period": "May – June 2023",
+    "category": "Generative AI · Data Analytics",
+    "role": "Data Technology & Analytics Challenge",
+    "status": "National Champion",
+    "description": "Participated in a generative AI modeling project for marketing-related data as part of the Budweiser China Data Technology and Analytics Challenge, winning first place in the competition track.",
+    "highlights": [
+      "Performed dataset preparation, cleaning, deduplication, and tokenization.",
+      "Worked with sequence modeling, attention mechanisms, and generative adversarial modeling approaches.",
+      "Conducted model experimentation and parameter adjustment to improve generation quality.",
+      "Used Docker to package applications and their dependencies for consistent execution."
+    ],
+    "topics": [
+      "Generative AI",
+      "Natural Language Processing",
+      "Deep Learning",
+      "Docker"
+    ],
+    "link": ""
+  }
+]

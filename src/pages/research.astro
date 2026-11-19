@@ -1,0 +1,798 @@
+
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+import { url } from '../utils/paths';
+
+const projects = [
+  {
+    number: '01',
+    id: 'financial-agents',
+    title: 'Recursive Self-Improving LLM Agents for Financial Decision-Making',
+    category: 'Artificial Intelligence · Machine Learning · Finance',
+    image: '/images/research/1.jpg',
+    alt: 'Large language models, reinforcement learning, and multi-agent systems for financial decision-making',
+    description:
+      'This research explores how autonomous financial agents can continuously improve their reasoning, risk awareness, and investment strategies through LLM post-training, reinforcement learning, market feedback, and accumulated experience.',
+    topics: [
+      'LLM Post-training: SFT, DPO, and RL',
+      'Reward Modeling & Feedback Optimization',
+      'Autonomous Financial Agents',
+      'Multi-Agent Collaboration',
+      'Long-Term Memory & Experience Learning',
+      'Quantitative Investment & Financial Decision-Making',
+    ],
+  },
+  {
+    number: '02',
+    id: 'on-device-llm',
+    title: 'Precision-Aware Runtime Optimization for On-Device LLM Inference',
+    category: 'AI Systems · Computer Systems · Edge AI',
+    image: '/images/research/2.jpg',
+    alt: 'On-device artificial intelligence and mobile processor architecture',
+    description:
+      'This research investigates efficient on-device LLM inference through precision-aware runtime adaptation, resource-constrained scheduling, and low-disruption, state-preserving model reconfiguration.',
+    topics: [
+      'On-Device LLM Inference',
+      'Dynamic Quantization & Precision Adaptation',
+      'KV Cache Management',
+      'NPU Runtime Optimization',
+      'Resource-Constrained Scheduling',
+      'State-Preserving Runtime Reconfiguration',
+    ],
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={`Research | ${SITE_TITLE}`}
+      description="Research projects and proposals in recursively self-improving financial LLM agents and efficient on-device AI systems."
+    />
+  </head>
+
+  <body>
+    <Header />
+
+    <main class="research-page">
+
+      <!-- Page Title -->
+      <div class="page-title">
+        <h1>Research</h1>
+      </div>
+
+      <!-- Research Overview -->
+      <section class="research-overview">
+
+        {projects.map((project) => (
+          <article class="research-card">
+
+            <div class="research-image">
+              <img
+                class="research-thumbnail"
+                src={url(project.image)}
+                alt={project.alt}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <div class="research-content">
+
+              <div class="project-number">
+                RESEARCH {project.number}
+              </div>
+
+              <h2>{project.title}</h2>
+
+              <div class="project-category">
+                {project.category}
+              </div>
+
+              <p class="project-description">
+                {project.description}
+              </p>
+
+              <ul class="topic-list">
+                {project.topics.map((topic) => (
+                  <li>{topic}</li>
+                ))}
+              </ul>
+
+              <a
+                class="plan-link"
+                href={`#${project.id}`}
+              >
+                Research Plan ↓
+              </a>
+
+            </div>
+
+          </article>
+        ))}
+
+      </section>
+
+      <!-- Research Plans -->
+      <section class="research-plans">
+
+        <h2 class="section-title">Research Plans</h2>
+
+        <!-- Research Plan 01 -->
+        <article
+          class="research-plan"
+          id="financial-agents"
+        >
+
+          <div class="project-number">
+            RESEARCH 01
+          </div>
+
+          <h2>
+            Recursive Self-Improving LLM Agents
+            for Financial Decision-Making
+          </h2>
+
+          <p class="plan-subtitle">
+            Feedback-driven learning, adaptive decision-making,
+            and recursive self-improvement in financial environments.
+          </p>
+
+          <h3>1. Research Motivation</h3>
+
+          <p>
+            Large language models are evolving from knowledge
+            generation systems into intelligent agents capable
+            of information retrieval, tool use, complex reasoning,
+            and autonomous decision-making. Financial markets
+            provide a dynamic environment with measurable feedback
+            for investigating how intelligent agents can learn
+            from experience and continuously improve their
+            decision-making capabilities.
+          </p>
+
+          <p>
+            This research aims to investigate learning and
+            optimization mechanisms that enable financial agents
+            not only to perform investment research and quantitative
+            decision-making tasks, but also to improve their
+            capabilities through market feedback, accumulated
+            experience, and strategy optimization.
+          </p>
+
+          <h3>2. Core Research Question</h3>
+
+          <blockquote>
+            How can LLM post-training and reinforcement learning
+            enable autonomous financial agents to continuously
+            improve their reasoning, risk preferences, and
+            investment strategies through market data, historical
+            experience, and decision feedback?
+          </blockquote>
+
+          <h3>3. Proposed Research Approach</h3>
+
+          <div class="method">
+
+            <h4>LLM Post-training & Reinforcement Learning</h4>
+
+            <p>
+              Investigate supervised fine-tuning (SFT), direct
+              preference optimization (DPO), and reinforcement
+              learning methods to improve financial reasoning,
+              information retrieval, quantitative forecasting,
+              and investment decision-making.
+            </p>
+
+          </div>
+
+          <div class="method">
+
+            <h4>Reward Modeling & Risk-Aware Optimization</h4>
+
+            <p>
+              Explore reward model design, risk constraints,
+              feedback signal optimization, and policy updating
+              mechanisms. Integrate historical market data,
+              investment outcomes, human feedback, and environmental
+              interactions into feedback-driven learning loops.
+            </p>
+
+          </div>
+
+          <div class="method">
+
+            <h4>Autonomous Financial Agents & Continual Learning</h4>
+
+            <p>
+              Investigate financial retrieval-augmented generation
+              (RAG), tool use, task planning, long-term memory,
+              and experience accumulation to support adaptive
+              financial reasoning and recursive self-improvement.
+            </p>
+
+          </div>
+
+          <div class="method">
+
+            <h4>Multi-Agent Learning & Collaboration</h4>
+
+            <p>
+              Explore multi-agent collaboration, agent swarms,
+              experience transfer, collective decision-making,
+              and strategy self-evolution in dynamic financial
+              environments.
+            </p>
+
+          </div>
+
+          <div class="method">
+
+            <h4>Efficient Financial Agent Systems</h4>
+
+            <p>
+              Investigate multi-agent parallel execution,
+              reinforcement learning training optimization,
+              real-time financial data processing, and inference
+              efficiency to support scalable training,
+              backtesting, and deployment.
+            </p>
+
+          </div>
+
+          <h3>4. Potential Experimental Settings</h3>
+
+          <p>
+            The proposed research will explore historical financial
+            market data, quantitative investment tasks, and
+            simulated market interactions. Web3 markets may serve
+            as a complementary experimental setting for studying
+            adaptive learning and agent evolution under dynamic,
+            high-frequency feedback.
+          </p>
+
+          <h3>5. Expected Contributions</h3>
+
+          <ul class="plan-list">
+            <li>
+              Feedback-driven learning mechanisms for
+              autonomous financial agents.
+            </li>
+
+            <li>
+              Risk-aware reasoning and adaptive
+              financial decision-making methods.
+            </li>
+
+            <li>
+              Experience-based continual learning and
+              recursive self-improvement mechanisms.
+            </li>
+
+            <li>
+              Efficient and collaborative multi-agent
+              systems for quantitative financial applications.
+            </li>
+          </ul>
+
+          <div class="keywords">
+            <span>Large Language Models</span>
+            <span>Recursive Self-Improvement</span>
+            <span>Post-training</span>
+            <span>Reinforcement Learning</span>
+            <span>Multi-Agent Systems</span>
+            <span>Quantitative Finance</span>
+          </div>
+
+        </article>
+
+        <!-- Research Plan 02 -->
+        <article
+          class="research-plan"
+          id="on-device-llm"
+        >
+
+          <div class="project-number">
+            RESEARCH 02
+          </div>
+
+          <h2>
+            Precision-Aware Runtime Optimization
+            for On-Device LLM Inference
+          </h2>
+
+          <p class="plan-subtitle">
+            Disruption-bounded, state-preserving runtime
+            reconfiguration under dynamic resource contention.
+          </p>
+
+          <h3>1. Research Motivation</h3>
+
+          <p>
+            On-device LLM inference faces limited memory,
+            bandwidth, and computational resources shared
+            with foreground applications. As resource availability
+            changes, the runtime may need to dynamically adjust
+            model precision, KV cache residency, or NPU execution
+            configurations.
+          </p>
+
+          <p>
+            However, weight loading, computation graph switching,
+            and KV cache migration introduce additional latency,
+            transient memory pressure, and inference stalls.
+            Coordinating these operations under simultaneous
+            hardware constraints and foreground resource
+            competition remains an important systems research
+            problem.
+          </p>
+
+          <h3>2. Core Research Question</h3>
+
+          <blockquote>
+            How can expensive model reconfigurations be scheduled
+            as dependency-constrained workloads to minimize
+            inference disruption while preserving model state
+            and foreground application Quality of Service (QoS)?
+          </blockquote>
+
+          <h3>3. Proposed Research Approach</h3>
+
+          <div class="method">
+
+            <h4>Transition Modeling</h4>
+
+            <p>
+              Profile model precision configurations, NPU
+              computation graphs, and KV cache layouts. Construct
+              a dependency graph that captures weight preparation,
+              state migration, synchronization, and cutover
+              operations, together with their time, energy,
+              and memory costs.
+            </p>
+
+          </div>
+
+          <div class="method">
+
+            <h4>Resource-Constrained Scheduling</h4>
+
+            <p>
+              Develop an online planner that determines whether,
+              when, and how to reconfigure the model based on
+              resource pressure, transition costs, remaining
+              inference workloads, temporary memory requirements,
+              and foreground application QoS.
+            </p>
+
+          </div>
+
+          <div class="method">
+
+            <h4>Safe and State-Preserving Execution</h4>
+
+            <p>
+              Explore overlapping reconfiguration with ongoing
+              inference, incremental state migration, safe
+              cutover, compatibility validation, and fallback
+              mechanisms to preserve execution correctness
+              and reduce user-visible disruption.
+            </p>
+
+          </div>
+
+          <h3>4. Research Hypothesis & Expected Contributions</h3>
+
+          <p>
+            The central hypothesis is that explicitly scheduling
+            state-dependent model reconfiguration under memory
+            and QoS constraints can reduce user-visible inference
+            stalls compared with immediate switching or
+            independently optimized runtime policies.
+          </p>
+
+          <ul class="plan-list">
+
+            <li>
+              Systematic characterization of model transition
+              costs on mobile devices.
+            </li>
+
+            <li>
+              Resource-aware and state-aware runtime
+              scheduling mechanisms.
+            </li>
+
+            <li>
+              Low-disruption, state-preserving execution
+              and safe model reconfiguration.
+            </li>
+
+          </ul>
+
+          <h3>5. Proposed Experimental Evaluation</h3>
+
+          <p>
+            The proposed evaluation will consider commercial
+            mobile SoCs running open-weight LLMs in the
+            1–4B parameter range under varying context lengths,
+            memory pressure, and foreground application workloads.
+          </p>
+
+          <p>
+            Baselines will include static configurations,
+            immediate switching, threshold-based adaptation,
+            and feasible existing runtime optimization approaches.
+          </p>
+
+          <div class="evaluation-grid">
+
+            <div class="evaluation-item">
+              <strong>p95 Latency</strong>
+              <span>Inference responsiveness</span>
+            </div>
+
+            <div class="evaluation-item">
+              <strong>Transition Stalls</strong>
+              <span>Reconfiguration disruption</span>
+            </div>
+
+            <div class="evaluation-item">
+              <strong>Peak Memory</strong>
+              <span>Transient memory overhead</span>
+            </div>
+
+            <div class="evaluation-item">
+              <strong>Energy per Token</strong>
+              <span>Energy efficiency</span>
+            </div>
+
+            <div class="evaluation-item">
+              <strong>Foreground QoS</strong>
+              <span>Application responsiveness and jank</span>
+            </div>
+
+            <div class="evaluation-item">
+              <strong>Model Quality</strong>
+              <span>Inference quality preservation</span>
+            </div>
+
+          </div>
+
+          <div class="keywords">
+            <span>AI Systems</span>
+            <span>On-Device LLMs</span>
+            <span>Dynamic Quantization</span>
+            <span>KV Cache</span>
+            <span>NPU</span>
+            <span>Runtime Scheduling</span>
+          </div>
+
+        </article>
+
+      </section>
+
+    </main>
+
+    <Footer />
+
+  </body>
+</html>
+
+<style>
+
+  /* Page layout */
+
+  .research-page {
+    width: min(1080px, calc(100% - 48px));
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 48px 0 80px;
+    box-sizing: border-box;
+    color: var(--color-text-main, inherit);
+  }
+
+  /* Non-sticky page title */
+
+  .page-title {
+    position: static;
+    top: auto;
+    z-index: auto;
+    margin-bottom: 32px;
+  }
+
+  .page-title h1 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    font-weight: 750;
+    letter-spacing: -0.04em;
+    line-height: 1.2;
+  }
+
+  /* Research overview */
+
+  .research-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .research-card {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: 28px;
+    padding: 24px;
+    border: 1px solid var(--color-border, #dddddd);
+    border-radius: 12px;
+  }
+
+  /* Research images */
+
+  .research-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #10151c;
+  }
+
+  .research-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .research-content {
+    min-width: 0;
+  }
+
+  .project-number {
+    color: var(--color-accent, #4676b6);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin-bottom: 10px;
+  }
+
+  .research-content h2 {
+    margin: 0 0 9px;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.025em;
+  }
+
+  .project-category {
+    color: var(--color-accent, #4676b6);
+    font-size: 0.76rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--color-text-muted, inherit);
+    margin: 0 0 14px;
+  }
+
+  .topic-list {
+    padding-left: 18px;
+    margin: 0 0 16px;
+    color: var(--color-text-muted, inherit);
+    font-size: 0.83rem;
+    line-height: 1.8;
+  }
+
+  .topic-list li {
+    margin-bottom: 4px;
+  }
+
+  .topic-list li::marker {
+    color: var(--color-accent, #4676b6);
+  }
+
+  .plan-link {
+    display: inline-block;
+    font-size: 0.87rem;
+    font-weight: 650;
+    color: var(--color-accent, #4676b6);
+    text-decoration: none;
+    border: none;
+  }
+
+  .plan-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Detailed research plans */
+
+  .research-plans {
+    margin-top: 64px;
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+    font-weight: 750;
+    margin: 0 0 30px;
+    padding-bottom: 15px;
+    letter-spacing: -0.035em;
+    border-bottom: 1px solid var(--color-border, #dddddd);
+  }
+
+  .research-plan {
+    scroll-margin-top: 100px;
+    margin-bottom: 45px;
+    padding: 30px;
+    border: 1px solid var(--color-border, #dddddd);
+    border-radius: 12px;
+  }
+
+  .research-plan > h2 {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    line-height: 1.4;
+    font-weight: 750;
+    letter-spacing: -0.025em;
+    margin: 10px 0;
+  }
+
+  .plan-subtitle {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--color-text-muted, inherit);
+    margin-bottom: 28px;
+  }
+
+  .research-plan h3 {
+    margin: 28px 0 12px;
+    font-size: 1.13rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+
+  .research-plan p {
+    font-size: 0.94rem;
+    line-height: 1.85;
+    color: var(--color-text-muted, inherit);
+  }
+
+  .research-plan blockquote {
+    margin: 18px 0 28px;
+    padding: 18px 22px;
+    border-left: 3px solid var(--color-accent, #4676b6);
+    background: var(--color-bg-offset, transparent);
+    border-radius: 0 6px 6px 0;
+    font-size: 1rem;
+    line-height: 1.8;
+    font-style: normal;
+  }
+
+  .method {
+    margin: 18px 0;
+  }
+
+  .method h4 {
+    margin: 0 0 6px;
+    font-size: 0.98rem;
+    font-weight: 700;
+  }
+
+  .method p {
+    margin: 0;
+  }
+
+  .plan-list {
+    padding-left: 21px;
+    font-size: 0.94rem;
+    line-height: 1.85;
+    color: var(--color-text-muted, inherit);
+  }
+
+  .plan-list li {
+    margin-bottom: 8px;
+  }
+
+  /* Evaluation metrics */
+
+  .evaluation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 22px 0;
+  }
+
+  .evaluation-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border, #dddddd);
+  }
+
+  .evaluation-item strong {
+    font-size: 0.87rem;
+  }
+
+  .evaluation-item span {
+    font-size: 0.76rem;
+    line-height: 1.5;
+    color: var(--color-text-muted, inherit);
+  }
+
+  /* Research keywords */
+
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 22px;
+    margin-top: 28px;
+    border-top: 1px solid var(--color-border, #dddddd);
+  }
+
+  .keywords span {
+    font-size: 0.73rem;
+    padding: 5px 10px;
+    border: 1px solid var(--color-border, #dddddd);
+    border-radius: 5px;
+    color: var(--color-text-muted, inherit);
+  }
+
+  /* Mobile layout */
+
+  @media (max-width: 760px) {
+
+    .research-page {
+      width: calc(100% - 32px);
+      padding: 32px 0 60px;
+    }
+
+    .research-card {
+      grid-template-columns: 1fr;
+      gap: 22px;
+      padding: 18px;
+    }
+
+    .research-image {
+      aspect-ratio: 4 / 3;
+    }
+
+    .research-content h2 {
+      font-size: 1.25rem;
+    }
+
+    .research-plan {
+      padding: 20px;
+    }
+
+    .research-plans {
+      margin-top: 45px;
+    }
+
+    .evaluation-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+  }
+
+  @media (max-width: 400px) {
+
+    .evaluation-grid {
+      grid-template-columns: 1fr;
+    }
+
+  }
+
+</style>

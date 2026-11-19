@@ -1,0 +1,639 @@
+
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+import {
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  CONTACT,
+} from '../consts';
+
+import { url } from '../utils/paths';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={SITE_TITLE}
+      description={SITE_DESCRIPTION}
+    />
+
+    <style>
+      /* Hero Section */
+
+      .hero {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        padding: 4rem 0;
+        margin-bottom: 2rem;
+      }
+
+      .hero-content {
+        flex: 3;
+        min-width: 0;
+      }
+
+      .hero-image {
+        flex: 2;
+        text-align: center;
+        position: relative;
+      }
+
+      .hero-image img {
+        display: block;
+        width: 280px;
+        height: 280px;
+        max-width: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 6px solid var(--color-bg);
+        box-shadow:
+          0 0 0 1px var(--color-border),
+          var(--shadow-lg);
+        margin: 0 auto;
+      }
+
+      .hero h1 {
+        margin-bottom: 0.5rem;
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-weight: 400;
+        color: var(--color-text-muted);
+        margin-bottom: 1.5rem;
+        font-family: var(--font-sans);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-size: 1rem;
+        line-height: 1.8;
+        border-bottom: none;
+        padding-bottom: 0;
+        display: block;
+        margin-top: 0;
+      }
+
+      .hero-intro {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      /* General Sections */
+
+      .section-block {
+        margin: 3rem 0;
+        padding-top: 2rem;
+        border-top: 1px solid var(--color-border);
+      }
+
+      .section-block h2 {
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+      }
+
+      .section-intro {
+        color: var(--color-text-muted);
+        line-height: 1.8;
+        margin-bottom: 1.75rem;
+      }
+
+      /* Research Interests */
+
+      .research-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+
+      .research-card {
+        border: 1px solid var(--color-border);
+        border-radius: 10px;
+        padding: 1.4rem;
+      }
+
+      .research-card h3 {
+        font-size: 1.05rem;
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        color: var(--color-text-main);
+      }
+
+      .research-card p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: var(--color-text-muted);
+        margin-bottom: 0;
+      }
+
+      /* Projects and Education */
+
+      .entry {
+        padding: 1.5rem 0;
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .entry:last-child {
+        border-bottom: none;
+      }
+
+      .entry h3 {
+        font-size: 1.15rem;
+        margin-top: 0;
+        margin-bottom: 0.4rem;
+      }
+
+      .entry-meta {
+        font-size: 0.92rem;
+        color: var(--color-text-muted);
+        margin-bottom: 0.75rem;
+        line-height: 1.6;
+      }
+
+      .entry p {
+        line-height: 1.8;
+        margin-bottom: 0.75rem;
+      }
+
+      .entry p:last-child {
+        margin-bottom: 0;
+      }
+
+      .entry a {
+        color: var(--color-accent);
+        font-weight: 600;
+      }
+
+      /* Contact */
+
+      .contact-email {
+        font-weight: 600;
+        overflow-wrap: anywhere;
+      }
+
+      /* Mobile */
+
+      @media (max-width: 768px) {
+        .hero {
+          flex-direction: column-reverse;
+          text-align: center;
+          padding: 2rem 0;
+          gap: 2rem;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-image img {
+          width: 200px;
+          height: 200px;
+        }
+
+        .hero-buttons {
+          justify-content: center;
+        }
+
+        .research-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <Header />
+
+    <main>
+
+      <!-- ========================= -->
+      <!-- Academic Profile          -->
+      <!-- ========================= -->
+
+      <section class="hero">
+
+        <div class="hero-content">
+
+          <h1>{SITE_TITLE}</h1>
+
+          <p class="hero-intro">
+            I am a master's student in Computer Science
+            at <strong>The University of Texas at Austin</strong>.
+            My research interests focus on
+            <strong>
+              LLM reasoning and post-training,
+              reinforcement learning, and multi-agent systems
+            </strong>,
+            with an emphasis on intelligent decision-making
+            under uncertainty.I am interested in improving
+            the reasoning, planning, and coordination
+            capabilities of LLM-based agents,
+            especially for financial decision-making.
+          </p>
+
+          <p class="hero-intro">
+            My previous experience includes multi-agent
+            prediction markets, decentralized AI agent
+            interoperability, generative AI for financial
+            data analysis, and machine learning-based
+            quantitative research.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#research" class="btn">
+              Research Interests
+            </a>
+
+            <a href="#projects" class="btn btn-outline">
+              Selected Projects
+            </a>
+          </div>
+
+        </div>
+
+        <div class="hero-image">
+          <img
+            src={url('/profile.jpg')}
+            width="280"
+            height="280"
+            alt="Portrait of Aaron Chyi"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
+
+      </section>
+
+
+      <!-- ========================= -->
+      <!-- Research Interests        -->
+      <!-- ========================= -->
+
+      <section id="research" class="section-block">
+
+        <h2>Research Interests</h2>
+
+        <p class="section-intro">
+          I am interested in developing learning and reasoning
+          methods for intelligent agents, with applications
+          to multi-agent coordination and financial
+          decision-making.
+        </p>
+
+        <div class="research-grid">
+
+          <div class="research-card">
+
+            <h3>LLM Agents, Reasoning & Post-training</h3>
+
+            <p>
+              Reasoning, planning, and post-training methods
+              to improve the decision-making capabilities
+              of large language model-based agents.
+            </p>
+
+          </div>
+
+          <div class="research-card">
+
+            <h3>Multi-Agent Systems</h3>
+
+            <p>
+              Communication, cooperation, coordination,
+              and strategic interactions among autonomous
+              agents in dynamic environments.
+            </p>
+
+          </div>
+
+          <div class="research-card">
+
+            <h3>Reinforcement Learning & Sequential Decision-Making</h3>
+
+            <p>
+              Reinforcement learning and sequential
+              decision-making under uncertainty,
+              with applications to financial markets
+              and quantitative decision-making.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ========================= -->
+      <!-- Selected Research         -->
+      <!-- ========================= -->
+
+      <section id="projects" class="section-block">
+
+        <h2>Selected Research & Projects</h2>
+
+        <!-- Electric Crab -->
+
+        <article class="entry">
+
+          <h3>
+            Electric Crab —
+            Multi-Agent Prediction Market System
+          </h3>
+
+          <div class="entry-meta">
+            ETH Beijing 2026 · Core Developer · May 2026
+          </div>
+
+          <p>
+            Contributed to the development and testing
+            of Electric Crab, a multi-agent prediction
+            market system involving eight AI agents,
+            including price and sentiment analysis agents.
+          </p>
+
+          <p>
+            Worked on agent functionality testing,
+            system debugging, scenario validation,
+            and identifying potential risks associated
+            with abnormal market fluctuations
+            and market manipulation.
+          </p>
+
+          <p>
+            <a
+              href="https://github.com/Aaron-sg-qi/Electric-Crab-The-Market-Guardian"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Project on GitHub →
+            </a>
+          </p>
+
+        </article>
+
+
+        <!-- Quantitative Research -->
+
+        <article class="entry">
+
+          <h3>
+            Machine Learning for Quantitative Research
+          </h3>
+
+          <div class="entry-meta">
+            Primal Fund · Dec. 2025 – Feb. 2026
+          </div>
+
+          <p>
+            Conducted machine learning-based
+            quantitative strategy research,
+            including financial data preprocessing,
+            feature engineering, alpha factor
+            exploration, and predictive modeling.
+          </p>
+
+          <p>
+            Studied and reproduced machine learning
+            methods from research literature
+            to investigate their applicability
+            to financial market data.
+          </p>
+
+        </article>
+
+
+        <!-- Tokyo AI Agent Project -->
+
+        <article class="entry">
+
+          <h3>
+            Decentralized AI Agent Interoperability
+          </h3>
+
+          <div class="entry-meta">
+            Global AI Conference & Hackathon Tokyo 2025
+            · Second Prize
+          </div>
+
+          <p>
+            Worked on an open-source interoperability
+            framework for decentralized AI agents,
+            building on agent-to-agent communication
+            concepts and the Google A2A protocol.
+          </p>
+
+          <p>
+            Explored multi-agent collaboration,
+            decentralized identity verification,
+            context sharing, and coordination
+            mechanisms for distributed
+            intelligent systems.
+          </p>
+
+        </article>
+
+
+        <!-- Banking Generative AI -->
+
+        <article class="entry">
+
+          <h3>
+            Generative AI for Banking Data Analysis
+          </h3>
+
+          <div class="entry-meta">
+            Research Experience ·
+            Nov. 2023 – Jun. 2024
+          </div>
+
+          <p>
+            Investigated generative AI approaches
+            for banking data analysis and
+            predictive modeling.
+          </p>
+
+          <p>
+            Worked with generative adversarial
+            networks (GANs), Transformer-based
+            encoder-decoder models, data
+            preprocessing, synthetic data generation,
+            and financial trend analysis.
+          </p>
+
+        </article>
+
+      </section>
+
+
+      <!-- ========================= -->
+      <!-- Education                 -->
+      <!-- ========================= -->
+
+      <section id="education" class="section-block">
+
+        <h2>Education</h2>
+
+        <div class="entry">
+
+          <h3>
+            The University of Texas at Austin
+          </h3>
+
+          <div class="entry-meta">
+            Sep. 2024 – Dec. 2027 (Expected)
+          </div>
+
+          <p>
+            Master of Science in Computer Science
+            <br />
+            Major GPA: 4.00 / 4.00
+          </p>
+
+        </div>
+
+
+        <div class="entry">
+
+          <h3>
+            Hebei University of Architecture
+          </h3>
+
+          <div class="entry-meta">
+            Sep. 2022 – Jul. 2024
+          </div>
+
+          <p>
+            Second Bachelor's Degree of Engineering in
+            Computer Science and Technology
+          </p>
+
+        </div>
+
+
+        <div class="entry">
+
+          <h3>
+            Hebei University of Architecture
+          </h3>
+
+          <div class="entry-meta">
+            Sep. 2018 – Jul. 2022
+          </div>
+
+          <p>
+            Bachelor of Management in Cost Engineering
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- ========================= -->
+      <!-- Honors and Awards         -->
+      <!-- ========================= -->
+
+      <section id="honors" class="section-block">
+
+        <h2>Honors & Awards</h2>
+
+        <div class="entry">
+
+          <h3>National Champion</h3>
+
+          <div class="entry-meta">
+            Budweiser China Data Technology
+            & Analytics Challenge · 2023
+          </div>
+
+          <p>
+            Champion of the Data Technology
+            and Analytics track, focusing on
+            generative AI model development
+            and data analysis.
+          </p>
+
+        </div>
+
+
+        <div class="entry">
+
+          <h3>Second Prize</h3>
+
+          <div class="entry-meta">
+            Global AI Conference & Hackathon
+            Tokyo · 2025
+          </div>
+
+          <p>
+            Awarded for a project on decentralized
+            AI agent interoperability
+            and multi-agent collaboration.
+          </p>
+
+        </div>
+
+
+        <div class="entry">
+
+          <h3>Distinguished Graduate</h3>
+
+          <div class="entry-meta">
+            Hebei University of Architecture · 2022
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ========================= -->
+      <!-- Contact                   -->
+      <!-- ========================= -->
+
+      <section id="contact" class="section-block">
+
+        <h2>Contact</h2>
+
+        <p>
+          I am actively seeking Ph.D. opportunities in Computer Science, Electrical and Computer Engineering (ECE), and interdisciplinary AI research. My research interests include large language model (LLM) reasoning and post-training, reinforcement learning, intelligent agents, multi-agent systems, and reliable decision-making under uncertainty, with a particular interest in applications to financial markets and quantitative investing. I am also interested in research at the intersection of artificial intelligence, decision sciences, and information systems, especially in financial technology and data-driven decision-making. Beyond academic research, I am passionate about translating cutting-edge research into impactful AI systems, innovative products, and entrepreneurial ventures. I welcome opportunities to connect with prospective Ph.D. advisors and research collaborators.
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+          <span class="contact-email">
+            {CONTACT.emails[0]}
+          </span>
+        </p>
+
+        <p>
+          <strong>GitHub:</strong>
+          <a
+            href="https://github.com/Aaron-sg-qi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Aaron-sg-qi
+          </a>
+        </p>
+
+      </section>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>
